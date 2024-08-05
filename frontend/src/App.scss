@@ -1,0 +1,127 @@
+.page {
+
+    min-height: 100vh;
+
+    color: var(--main-color);
+    background-color: var(--background-page-color);
+
+    &.light {
+        --main-color: var(--main-color-light);
+        --main-color-rgb: var(--main-color-rgb-light);
+        --secondary-color: var(--secondary-color-light);
+        --background-page-color: var(--background-page-color-light);
+        --home-todo-gradient-color: var(--home-todo-gradient-color-light);
+        --input-bg-color: var(--input-bg-color-light);
+        --gray-dark-color: var(--gray-dark-color-light);
+        --border-color: var(--border-color-light);
+        --input-bg-disabled-color: var(--input-bg-disabled-color-light);
+        --preloader-color: var(--preloader-color-light);
+        --preloader-secondary-color: var(--preloader-secondary-color-light);
+        --error-secondary-color: var(--error-secondary-color-light);
+        --success-secondary-color: var(--success-secondary-color-light);
+    }
+
+    &.dark {
+        --main-color: var(--main-color-dark);
+        --main-color-rgb: var(--main-color-rgb-dark);
+        --secondary-color: var(--secondary-color-dark);
+        --background-page-color: var(--background-page-color-dark);
+        --home-todo-gradient-color: var(--home-todo-gradient-color-dark);
+        --input-bg-color: var(--input-bg-color-dark);
+        --gray-dark-color: var(--gray-dark-color-dark);
+        --border-color: var(--border-color-dark);
+        --input-bg-disabled-color: var(--input-bg-disabled-color-dark);
+        --preloader-color: var(--preloader-color-dark);
+        --preloader-secondary-color: var(--preloader-secondary-color-dark);
+        --error-secondary-color: var(--error-secondary-color-dark);
+        --success-secondary-color: var(--success-secondary-color-dark);
+    }
+}
+
+.wrapper {
+    max-width: 98rem;
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    margin: 0 auto;
+}
+
+.App {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.5rem 0;
+
+    &.disableBtns {
+        button, a, .clickable, input {
+            pointer-events: none;
+
+            &.btn {
+                opacity: 0.5;
+            }
+        }
+
+        .home__todo {
+            color: var(--gray-dark-color);
+            transform: scale(0.9);
+        }
+    }
+}
+
+.main-wrapper {
+    max-width: 65rem;
+    width: 100%;
+
+    padding-right: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 30rem;
+    width: 100%;
+
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+
+    text-align: center;
+
+    background-color: var(--secondary-color);
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 8rem;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+
+        margin-top: 1.6rem;
+    }
+
+    &__btn {
+        margin-top: 2.5rem;
+    }
+
+    &__bottom-text {
+        margin-top: 1rem;
+        a {
+            color: var(--yellow-color);
+        }
+    }
+
+    .error {
+        margin-top: 2rem;
+    }
+}

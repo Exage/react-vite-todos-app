@@ -1,0 +1,74 @@
+
+.input {
+    background-color: var(--input-bg-color);
+    padding: 1rem 1.5rem;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    font-size: 1.4rem;
+    color: var(--main-color);
+
+    outline: none;
+
+    &::placeholder {
+        color: var(--input-placeholder-bg-color);
+    }
+
+    &:disabled {
+        color: rgba(var(--main-color-rgb), 0.5);
+        background-color: var(--input-bg-disabled-color);
+    }
+
+    &-wrapper {
+        position: relative;
+
+        &__search {
+
+            .input {
+                padding: 0.5rem 1.5rem;
+                padding-left: 3.5rem;
+            }
+
+            &-icon {
+                position: absolute;
+                top: 50%;
+                left: 1rem;
+                transform: translateY(-50%);
+                color: var(--input-placeholder-bg-color);
+
+                transition: color .2s ease;
+
+                &.filled {
+                    color: var(--main-color);
+                }
+            }
+        }
+    }
+
+    &-password {
+        padding-right: 4rem;
+    }
+
+    &-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+
+        z-index: 10;
+
+        svg {
+            fill: var(--main-color);
+        }
+    }
+}

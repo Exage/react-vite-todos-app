@@ -1,0 +1,48 @@
+.todos__add-item {
+    padding: 1rem 0;
+    padding-left: 2.5rem;
+
+    color: var(--gray-light-color);
+
+    &__btn {
+        position: relative;
+        width: 100%;
+        text-align: left;
+
+        &-icon {
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+        }
+    }
+
+    &__form {
+        &-input {
+            padding: 0;
+            border: none;
+            outline: none;
+
+            color: var(--main-color);
+
+            background-color: transparent;
+
+            &:disabled {
+                color: rgba(var(--main-color-rgb), 0.5);
+                background-color: transparent;
+            }
+        }
+
+        &-btn {
+            padding: 0 1rem;
+            border-radius: 0.5rem;
+
+            transition: background-color .2s ease;
+
+            &:hover {
+                background-color: rgba(var(--main-color-rgb), 0.1);
+            }
+        }
+    }
+}

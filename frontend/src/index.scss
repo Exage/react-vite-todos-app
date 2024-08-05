@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-color-light: #000;
+    --main-color-dark: #fff;
+    --secondary-color-light: #fff;
+    --secondary-color-dark: #1a1a1a;
+
+    --main-color-rgb-light: 0, 0, 0;
+    --main-color-rgb-dark: 255, 255, 255;
+
+    --background-page-color-light: #EDEDED;
+    --background-page-color-dark: #000;
+
+    --border-color-light: #EDEDED;
+    --border-color-dark: #393939;
+
+    --home-todo-gradient-color-light: 255, 255, 255;
+    --home-todo-gradient-color-dark: 26, 26, 26;
+
+    --yellow-color: #EBC230;
+    --yellow-darken-color: #caa728;
+
+    --button-text-color: #fff;
+
+    --selection-color: rgb(235, 194, 48, 0.45);
+
+    --gray-light-color: #A7A7A7;
+    --gray-dark-color-light: #5B5B5B;
+    --gray-dark-color-dark: #dfdfdf;
+    --gray-secondary-color: #9B9B9B;
+    --gray-secondary-hover-color: #efefef;
+
+    --input-bg-color-light: #F5F5F5;
+    --input-bg-color-dark: #212121;
+    --input-bg-disabled-color-light: #d9d9d9;
+    --input-bg-disabled-color-dark: #333;
+    --input-placeholder-bg-color: #D1CDCD;
+
+    --error-main-color: #FF7A7A;
+    --error-secondary-color-light: #FFCDCD;
+    --error-secondary-color-dark: #2d1919;
+
+    --success-main-color: #46d571;
+    --success-secondary-color-light: #e1f1df;
+    --success-secondary-color-dark: #1d211d;
+
+    --sidebar-links-color: #737373;
+
+    --todo-item-selection: #f8f8f8;
+
+    --preloader-color-light: #e7e7e7;
+    --preloader-color-dark: #424242;
+    --preloader-secondary-color-light: #fbfbfb;
+    --preloader-secondary-color-dark: #2d2d2d;
+
+    --overlay-color: rgba(0, 0, 0, 0.5);
+
+    --home-todo-disabled: #F5F5F5;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+
+    margin: 0;
+    padding: 0;
+    
+    &.light {
+        background-color: var(--background-page-color-light);
+    }
+
+    &.dark {
+        background-color: var(--background-page-color-dark);
+    }
+}
+
+::selection {
+    background: var(--selection-color);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    line-height: 1;
+}
+
+a {
+    color: inherit;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    background: none;
+    outline: none;
+    padding: 0;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.logo {
+    display: block;
+    max-width: 15rem;
+    height: 3rem;
+
+    text-decoration: none;
+
+    background-image: url(./assets/logo-light.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    font-size: 0;
+
+    transition: background-image .2s ease;
+
+    &.light {
+        background-image: url(./assets/logo-light.svg);
+    }
+
+    &.dark {
+        background-image: url(./assets/logo-dark.svg);
+    }
+}
+
+.btn {
+    // min-width: 11rem;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+
+    text-decoration: none;
+    text-align: center;
+
+    background: var(--yellow-color);
+    color: var(--button-text-color);
+    border: 2px solid var(--yellow-color);
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    line-height: 1;
+
+    transition: all .2s linear;
+
+    &:hover {
+        background-color: var(--yellow-darken-color);
+        border-color: var(--yellow-darken-color);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    svg {
+        margin-right: 1rem;
+    }
+
+    &-bordered {
+        background-color: transparent;
+        color: var(--yellow-color);
+
+        border: 2px solid var(--yellow-color);
+
+        &:hover {
+            background-color: transparent;
+            color: var(--yellow-darken-color);
+
+            border-color: var(--yellow-darken-color);
+        }
+    }
+
+    &-black {
+        color: var(--main-color);
+        border-color: var(--main-color);
+    }
+
+    &-underline {
+        text-decoration: underline;
+    }
+}

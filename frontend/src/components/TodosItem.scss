@@ -1,0 +1,248 @@
+.todos__item {
+
+    &-main {
+        display: flex;
+        align-items: flex-end;
+
+        padding: 1rem 0;
+
+        transition: background-color .2s ease;
+    }
+
+    &:hover &-btns {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &-body {
+        display: block;
+
+        width: 100%;
+        min-height: 2.5rem;
+        // line-height: 1.4;
+
+        resize: none;
+
+        padding: 0;
+        border: none;
+        outline: none;
+
+        background-color: transparent;
+
+        word-break: break-all;
+
+        transform-origin: left;
+
+        transition: color .2s ease;
+
+        &__preloader {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+                background-color: var(--preloader-color);
+
+                border-radius: 0.5rem;
+
+                animation: pulse 1s ease 0.6s infinite alternate;
+            }
+        }
+
+        &:focus {
+            // outline: dashed var(--gray-light-color) 0.1rem !important;
+            color: var(--main-color) !important;
+        }
+
+        &__wrapper {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-right: 1rem;
+
+            flex: 1;
+
+            cursor: pointer;
+            
+            &__preloader {
+                flex: none;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0.7rem;
+                left: 1rem;
+
+                display: block;
+                flex: 0 0 auto;
+
+                width: 0.8rem;
+                height: 0.8rem;
+
+                background-color: transparent;
+
+                border: 1px solid var(--gray-secondary-color);
+
+                border-radius: 50%;
+
+                transition: all .2s ease;
+            }
+
+            &-completed {
+
+                // color: var(--gray-dark-color);
+
+                &::before {
+                    background-color: var(--yellow-color);
+                    border-color: var(--yellow-color);
+                }
+            }
+
+            &.bold {
+                font-weight: 700;
+            }
+
+            &.italic {
+                font-style: italic;
+            }
+
+            &.underline {
+                text-decoration: underline;
+            }
+
+            &.linethrough {
+                text-decoration: line-through;
+            }
+
+            &.linethrough-underline {
+                text-decoration: line-through underline;
+            }
+        }
+    }
+
+    &-btns {
+        display: flex;
+        column-gap: 1rem;
+
+        transform: translateY(1rem);
+        opacity: 0;
+
+        transition: all .2s ease;
+    }
+
+    &-btn {
+        width: 3rem;
+        height: 3rem;
+        visibility: visible;
+
+        border-radius: 50%;
+
+        font-size: 1.4rem;
+
+        background-color: transparent;
+
+        transition: all .2s ease;
+
+        &:hover {
+            background-color: rgba(var(--main-color-rgb), 0.1);
+        }
+
+        &.hidebtn {
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+
+    $controlsHeight: 3rem;
+
+    &-controls {
+        display: flex;
+        align-items: stretch;
+
+        column-gap: 2.5rem;
+
+        background-color: var(--background-page-color);
+
+        border-radius: 0.5rem;
+        padding: 0.3rem;
+
+        height: $controlsHeight;
+
+        &__wrapper {
+            height: $controlsHeight;
+            overflow: hidden;
+
+            border-radius: 0.5rem;
+
+            transition: height .2s ease;
+        }
+
+        &__btn {
+            height: 100%;
+            color: var(--main-color);
+            background-color: var(--secondary-color);
+            padding: 0 0.4rem;
+            border-radius: 0.5rem;
+
+            font-size: 1.4rem;
+            line-height: 1;
+
+            transition: all .2s ease;
+
+            svg {
+                margin-right: 0.5rem;
+            }
+
+            &-delete {
+                &:hover {
+                    color: var(--secondary-color);
+                    background-color: var(--error-main-color);
+                }
+            }
+
+            &.active {
+                color: var(--button-text-color);
+                background-color: var(--yellow-color);
+
+                &.disabled {
+                    background-color: var(--gray-secondary-color);
+                }
+            }
+
+            &.bold {
+                font-weight: 700;
+            }
+
+            &.italic {
+                font-style: italic;
+            }
+
+            &.underline {
+                text-decoration: underline;
+            }
+
+            &.linethrough {
+                text-decoration: line-through;
+            }
+
+            &.linethrough-underline {
+                text-decoration: line-through underline;
+            }
+        }
+
+        &__fontstyles,
+        &__edit {
+            display: flex;
+            align-items: stretch;
+
+            column-gap: 0.4rem;
+        }
+    }
+}

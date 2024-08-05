@@ -1,0 +1,65 @@
+.usersettings {
+
+    background-color: var(--secondary-color);
+    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+
+    &__body {
+        display: flex;
+        column-gap: 2rem;
+        margin-top: 5rem;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        padding-right: 1rem;
+
+        width: 20rem;
+
+        border-right: 1px solid var(--border-color);
+
+        &-link {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+
+            font-weight: 700;
+
+            background-color: transparent;
+
+            transition: all .2s ease;
+
+            &:hover {
+                background-color: rgba(var(--main-color-rgb), 0.1);
+            }
+
+            &.active {
+                color: var(--button-text-color);
+                background-color: var(--yellow-color);
+            }
+        }
+    }
+
+    &__content {
+        flex: 1;
+
+        &-inner {
+            max-width: 33rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    &__form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    .error, .success {
+        text-align: center;
+    }
+}
