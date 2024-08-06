@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+import { faCircleHalfStroke, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './Sidebar.scss'
@@ -12,8 +12,8 @@ import logoDark from '../assets/logo-dark.svg'
 import { SidebarUser } from './SidebarUser'
 import { SidebarAuth } from './SidebarAuth'
 import { useAuthContext } from '../hooks/useAuthContext'
-import { useThemeContext } from '../hooks/useThemeContext'
 import { useToggleTheme } from '../hooks/useToggleTheme'
+import { useToggleMenu } from '../hooks/useToggleMenu'
 
 const githubUrl = 'https://github.com/Exage'
 
@@ -21,15 +21,28 @@ export const Sidebar = () => {
 
     const { user } = useAuthContext()
     const { toggleTheme, theme } = useToggleTheme()
+    const { menuOpen, setMenuOpen } = useToggleMenu()
 
     const handleToggleTheme = () => {
         toggleTheme()
     }
 
-    return (
-        <aside className='sidebar'>
+    const handleCloseMenu = () => {
+        setMenuOpen(false)
+    }
 
-            <div className="sidebar__sticky">
+    return (
+        <aside className={`sidebar${menuOpen ? ' open' : ''}`}>
+
+            <div className='sidebar__overlay' onClick={handleCloseMenu}></div>
+
+            <div className='sidebar__sticky'>
+
+                <div className='sidebar__close'>
+                    <button className='sidebar__close-btn' onClick={handleCloseMenu}>
+                        <FontAwesomeIcon icon={faClose} />
+                    </button>
+                </div>
 
                 <div className='sidebar__logo'>
                     <Link to='/' className={`logo${theme ? ` ${theme}` : ''}`}>
@@ -43,7 +56,7 @@ export const Sidebar = () => {
                 {!user && <SidebarAuth />}
 
                 <div className='sidebar__bottom'>
-                    <button className="sidebar__bottom-btn" onClick={handleToggleTheme}>
+                    <button className='sidebar__bottom-btn' onClick={handleToggleTheme}>
                         <FontAwesomeIcon
                             icon={faCircleHalfStroke}
                             style={{

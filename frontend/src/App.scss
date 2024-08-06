@@ -1,3 +1,6 @@
+@import './mixins';
+@import './vars';
+
 .page {
 
     min-height: 100vh;
@@ -19,6 +22,8 @@
         --preloader-secondary-color: var(--preloader-secondary-color-light);
         --error-secondary-color: var(--error-secondary-color-light);
         --success-secondary-color: var(--success-secondary-color-light);
+        --sidebar-menu-bg-color: var(--sidebar-menu-bg-color-light);
+        --sidebar-user-bg-color: var(--sidebar-user-bg-color-light);
     }
 
     &.dark {
@@ -35,6 +40,8 @@
         --preloader-secondary-color: var(--preloader-secondary-color-dark);
         --error-secondary-color: var(--error-secondary-color-dark);
         --success-secondary-color: var(--success-secondary-color-dark);
+        --sidebar-menu-bg-color: var(--sidebar-menu-bg-color-dark);
+        --sidebar-user-bg-color: var(--sidebar-user-bg-color-dark);
     }
 }
 
@@ -53,8 +60,16 @@
     justify-content: space-between;
     padding: 3.5rem 0;
 
+    @include bp($sidebar-bp-1) {
+        padding-bottom: 10.5rem;
+    }
+
     &.disableBtns {
-        button, a, .clickable, input {
+
+        button,
+        a,
+        .clickable,
+        input {
             pointer-events: none;
 
             &.btn {
@@ -74,6 +89,11 @@
     width: 100%;
 
     padding-right: 1rem;
+
+    @include bp($sidebar-bp-1) {
+        padding-right: 0;
+        margin: 0 auto;
+    }
 }
 
 .form {
@@ -116,6 +136,7 @@
 
     &__bottom-text {
         margin-top: 1rem;
+
         a {
             color: var(--yellow-color);
         }

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './App.scss'
 
 import { Sidebar } from './components/Sidebar'
+import { MobileMenu } from './components/MobileMenu'
 
 import { Home } from './pages/Home'
 import { Start } from './pages/Start'
@@ -72,6 +73,7 @@ function App() {
 							</Routes>
 						</main>
 						<Sidebar />
+						<MobileMenu />
 					</BrowserRouter>
 				</div>
 			</div>

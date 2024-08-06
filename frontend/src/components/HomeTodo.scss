@@ -1,3 +1,6 @@
+@import '../mixins';
+@import '../vars';
+
 .home__todo {
     background-color: var(--secondary-color);
     border-radius: 0.5rem;
@@ -14,10 +17,18 @@
 
     &:hover {
         transform: scale(1.05);
+
+        @include bp($sidebar-bp-1) {
+            transform: scale(1);
+        }
     }
 
     &:hover &-content::after {
         transform: translateY(3rem);
+
+        @include bp($sidebar-bp-1) {
+            transform: translateY(0);
+        }
     }
 
     &__preloader {

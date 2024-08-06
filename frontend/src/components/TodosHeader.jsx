@@ -30,7 +30,7 @@ export const TodosHeader = ({ currentTodos, updateTitle, setFocused, isPatchTodo
         }
     }, [currentTodos])
 
-    const handleFocus = () => {
+    const handleFocus = (Event) => {
         setEditTitle(true)
         setFocused(true)
     }
@@ -40,6 +40,10 @@ export const TodosHeader = ({ currentTodos, updateTitle, setFocused, isPatchTodo
         setFocused(false)
 
         updateTitle(title)
+    }
+
+    const preventContextMenu = (Event) => {
+        Event.preventDefault()
     }
 
     return (
@@ -58,6 +62,8 @@ export const TodosHeader = ({ currentTodos, updateTitle, setFocused, isPatchTodo
             <div
                 className="todos__header-title__wrapper"
                 onDoubleClick={handleFocus}
+                onTouchStart={handleFocus}
+                onContextMenu={preventContextMenu}
             >
                 {editTitle ? (
                     <TextareaAutosize

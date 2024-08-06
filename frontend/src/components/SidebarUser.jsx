@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useToggleMenu } from '../hooks/useToggleMenu'
 
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faGears} from '@fortawesome/free-solid-svg-icons'
@@ -11,6 +12,7 @@ export const SidebarUser = () => {
 
     const { user } = useAuthContext()
     const { logout } = useLogout()
+    const { setMenuOpen } = useToggleMenu()
 
     const [userMenuOpen, setUserMenuOpen] = useState(false)
 
@@ -32,7 +34,12 @@ export const SidebarUser = () => {
 
     const openUserMenu = () => setUserMenuOpen(!userMenuOpen)
 
-    const handleLogout = () => logout()
+    const handleLogout = () => {
+        setMenuOpen(false)
+        logout()
+    }
+
+    const handleClickLink = () => setMenuOpen(false)
 
     return (
         <div ref={menuRef} className={`sidebar__user${userMenuOpen ? ' sidebar__user-open' : ''}`}>
@@ -48,7 +55,7 @@ export const SidebarUser = () => {
             </div>
             <div className='sidebar__user-menu'>
                 <div className='sidebar__user-menu__links'>
-                    <Link to='/usersettings' className='sidebar__user-menu__link'>
+                    <Link to='/usersettings' className='sidebar__user-menu__link' onClick={handleClickLink}>
                         <FontAwesomeIcon icon={faGears} /> Account settings
                     </Link>
                 </div>

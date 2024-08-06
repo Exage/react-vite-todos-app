@@ -1,0 +1,56 @@
+@import '../mixins';
+@import '../vars';
+
+.mobilemenu {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__wrapper {
+        max-width: 65rem;
+        width: 100%;
+
+        padding: 1.5rem 1rem;
+
+        background-color: var(--secondary-color);
+        margin: 0 auto;
+
+        border-radius: 0.5rem;
+
+        box-shadow: 0 3px 0 var(--background-page-color), 0 -3px 0 var(--background-page-color), 3px 0 0 var(--background-page-color), -3px 0 0 var(--background-page-color);
+
+        @include bp($main-wrapper-bp) {
+            border-radius: 0;
+        }
+
+        &-fixed {
+            display: none;
+            position: fixed;
+            left: 0;
+            bottom: 1rem;
+
+            width: 100%;
+
+            z-index: 90;
+
+            @include bp($sidebar-bp-1) {
+                display: block;
+            }
+
+            @include bp($main-wrapper-bp) {
+                bottom: 0;
+            }
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+
+        font-size: 3.2rem;
+    }
+}

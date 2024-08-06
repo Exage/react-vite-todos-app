@@ -123,31 +123,32 @@ export const TodosItem = ({ setFocused, todo, updateTodos, deleteTodo }) => {
 
             >
                 <div className='todos__item-controls'>
-                    <div className='todos__item-controls__fontstyles'>
+                    <div className="todos__item-controls__inner">
+                        <div className='todos__item-controls__fontstyles'>
 
-                        {allFontStyles.map((item, index) => (
+                            {allFontStyles.map((item, index) => (
+                                <button
+                                    key={index}
+                                    value={item}
+                                    className={`todos__item-controls__btn ${item}${fontStyles.includes(item) ? ' active' : ''}`}
+                                    onClick={handleFontStyleBtn}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+
+                        </div>
+
+                        <div className='todos__item-controls__edit'>
                             <button
-                                key={index}
-                                value={item}
-                                className={`todos__item-controls__btn ${item}${fontStyles.includes(item) ? ' active' : ''}`}
-                                onClick={handleFontStyleBtn}
+                                className='todos__item-controls__btn todos__item-controls__btn-delete'
+                                onClick={handleDeleteTodo}
                             >
-                                {item}
+                                <FontAwesomeIcon icon={faTrash} />
+                                delete
                             </button>
-                        ))}
-
+                        </div>
                     </div>
-
-                    <div className='todos__item-controls__edit'>
-                        <button
-                            className='todos__item-controls__btn todos__item-controls__btn-delete'
-                            onClick={handleDeleteTodo}
-                        >
-                            <FontAwesomeIcon icon={faTrash} />
-                            delete
-                        </button>
-                    </div>
-
                 </div>
             </div>
 

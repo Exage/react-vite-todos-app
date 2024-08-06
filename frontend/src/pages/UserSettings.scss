@@ -1,13 +1,34 @@
+@import '../mixins';
+@import '../vars';
+
 .usersettings {
 
     background-color: var(--secondary-color);
     border-radius: 0.5rem;
     padding: 2rem 1rem;
 
+    @include bp($usersettings-bg-1) {
+        max-width: 40rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__header {
+        @include bp($usersettings-bg-1) {
+            text-align: center;
+            font-size: 1.6rem;
+        }
+    }
+
     &__body {
         display: flex;
         column-gap: 2rem;
         margin-top: 5rem;
+
+        @include bp($usersettings-bg-1) {
+            flex-direction: column;
+            margin-top: 3rem;
+        }
     }
 
     &__nav {
@@ -19,6 +40,16 @@
         width: 20rem;
 
         border-right: 1px solid var(--border-color);
+
+        @include bp($usersettings-bg-1) {
+            flex-direction: row;
+            padding-right: 0;
+            padding-bottom: 1rem;
+            width: 100%;
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
 
         &-link {
             text-decoration: none;
@@ -59,7 +90,8 @@
         row-gap: 2rem;
     }
 
-    .error, .success {
+    .error,
+    .success {
         text-align: center;
     }
 }

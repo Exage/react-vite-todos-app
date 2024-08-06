@@ -44,7 +44,7 @@ export const HomeHeading = () => {
     useEffect(() => {
         if (search.trim()) {
             document.body.classList.add('no-scroll')
-            
+
             const newFilter = todos.filter(value => {
                 return value.title.toLowerCase().includes(search.trim().toLowerCase())
             })
@@ -80,46 +80,52 @@ export const HomeHeading = () => {
                     height: `${headingHeight}px`
                 }}
             >
-                <InputSearch
-                    placeholder='Search'
+                <div className="home__heading-inner">
+                    <InputSearch
+                        placeholder='Search'
 
-                    value={search}
-                    onChange={Event => setSearch(Event.target.value)}
-                />
+                        value={search}
+                        onChange={Event => setSearch(Event.target.value)}
+                    />
 
-                {filteredData.length > 0 && (
-                    <div className="home__heading-search-results">
-                        <div className="home__heading-search-results__content">
-                            {filteredData.map(item => (
-                                <Link 
-                                    to={`/t/${item._id}`} 
-                                    key={item._id}
-                                    className='home__heading-search-results__item'
-                                >
-                                    <h1 className='home__heading-search-results__item-title'>
-                                        {item.isPinned && <FontAwesomeIcon className='icon' icon={faThumbtack} />}
-                                        <span>
-                                            {item.title}{item.isSameTitle ? ` (${item.isSameTitle})` : ''}
-                                        </span>
-                                    </h1>
-                                    <div className='home__heading-search-results__item-todos'>
-                                        {item.todos.map(todo => (
-                                            <span key={todo.id} className='home__heading-search-results__item-todo'>
-                                                {todo.body}
+                    {filteredData.length > 0 && (
+                        <div className="home__heading-search-results">
+                            <div className="home__heading-search-results__content">
+                                {filteredData.map(item => (
+                                    <Link
+                                        to={`/t/${item._id}`}
+                                        key={item._id}
+                                        className='home__heading-search-results__item'
+                                    >
+                                        <h1 className='home__heading-search-results__item-title'>
+                                            {item.isPinned && <FontAwesomeIcon className='icon' icon={faThumbtack} />}
+                                            <span>
+                                                {item.title}{item.isSameTitle ? ` (${item.isSameTitle})` : ''}
                                             </span>
-                                        ))}
-                                    </div>
-                                </Link>
-                            ))}
+                                        </h1>
+                                        <div className='home__heading-search-results__item-todos'>
+                                            {item.todos.map(todo => (
+                                                <span key={todo.id} className='home__heading-search-results__item-todo'>
+                                                    {todo.body}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
 
-                <button className="btn btn-bordered home__heading-btn" onClick={handleNewTodo} disabled={isLoading}>
-                    { isLoading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
-                    {/* <FontAwesomeIcon icon={faPlus} beat={isLoading} /> */}
-                    Add new collection
-                </button>
+                    <div className={`home__heading-btn__wrapper${filteredData.length > 0 ? ' hide' : ''}`}>
+                        <button className="btn btn-bordered home__heading-btn" onClick={handleNewTodo} disabled={isLoading}>
+                            {isLoading ? <FontAwesomeIcon icon={faCircleNotch} spin /> : <FontAwesomeIcon icon={faPlus} />}
+                            {/* <FontAwesomeIcon icon={faPlus} beat={isLoading} /> */}
+                            <span>
+                                Add new collection
+                            </span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )
